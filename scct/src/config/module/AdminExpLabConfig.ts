@@ -1,0 +1,59 @@
+export const tableDataConfig=[
+  {
+    label:'实验室编号',
+    prop:'id'
+  },
+  {
+    label:'实验室编码',
+    prop:'labCode',
+  },
+  {
+    label:'实验室名称',
+    prop:'labName'
+  },
+  {
+    label:'实验室地点',
+    prop:'labLocation',
+  },
+  {
+    label:'分院名称',
+    prop:'deptName',
+  },
+  {
+    label:'创建时间',
+    prop:'createAt'
+  },
+  {
+    label:'更新时间',
+    prop:'updateAt'
+  }
+]
+export const filterFormConfig=[
+  {
+    label:'实验室编码',
+    prop:'labCode'
+  },
+  {
+    label:'实验室名称',
+    prop:'labName'
+  },
+  {
+    label:'实验室地点',
+    prop:'labLocation'
+  },
+  {
+    label:'分院名称',
+    prop:'deptName'
+  }
+]
+export const importFormConfig=[
+  {
+    label:'实验室名称',
+    prop:'labName'
+  },
+  {
+    label:'实验室地点',
+    prop:'labLocation'
+  }
+]
+export const baseApi= "/api/admin/lab"

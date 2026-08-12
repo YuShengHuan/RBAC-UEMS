@@ -1,0 +1,100 @@
+cookie:
+  allowed-origins: http://localhost:5173
+cors:
+  allowed-origins: http://localhost:5173
+server:
+  port: 8089
+  address: 0.0.0.0
+file:
+  upload:
+    path:
+        uploads/
+    access-path:
+       /api/public/upload/**
+jodconverter:
+  local:
+    enabled: true
+    office-home: C:\Program Files\LibreOffice
+    max-tasks-per-process: 10
+docker:
+  enabled: false
+  office:
+    container-name:  ""      # 容器名
+    host-docs-dir: ""  # SpringBoot容器内挂载目录
+    container-docs-dir: ""            # LibreOffice容器内目录
+    soffice-cmd:  ""       # soffice命令路径
+    cmd-timeout: 60                      # 超时时间（秒）
+spring:
+  application:
+    name: demo
+  security:
+    user:
+      name: admin          # 自定义用户名
+      password: 123456      # 自定义密码（开发环境使用）
+  jackson:
+    # 禁用将日期序列化为时间戳（默认是 true，会转为毫秒数）
+    serialization:
+      write-dates-as-timestamps: false
+    # 全局配置 LocalDate 格式（如 "yyyy-MM-dd"）
+    date-format: yyyy-MM-dd
+    # 配置时区（可选，根据业务需求设置）
+    time-zone: GMT+8
+  # application.yml
+  servlet:
+      multipart:
+        max-file-size:
+                1024MB
+        max-request-size:
+                1024MB
+        enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/experiment?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      allow-pool-suspension: false
+
+  data:
+    redis:
+      port: 6379
+      lettuce:
+        pool:
+          max-active: 20
+          max-idle: 10
+          min-idle: 2
+          max-wait: -1
+  mail:
+    host: smtp.qq.com  # 以QQ邮箱为例
+    port: 465          # SSL加密端口
+    username: 123456@qq.com
+    password: dvslkewrxybjcdgf  # 邮箱授权码（非登录密码）
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true      # 启用SSL
+          auth: true          # 需要认证
+          connection-timeout: 5000
+          timeout: 3000
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
+email:
+  code:
+    expiration:
+      180000  #3分钟(毫秒)
+logging:
+  level:
+    org.springframework.boot.autoconfigure: ERROR
+
+
+jwt:
+  secret:
+     "dh&8s#g1=-e+-)(?>,./k/*#`~!@3Y6%*(^$+<,./.;;{:{[]}[;'ljduywiedhsicjedu8isiwjdy6*899888777&*^%UIJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWERTYUIOPLKJHGFDSAWER"
+  expiration:
+    86400000 # 24小时(毫秒)86400000
+  refresh:
+     expiration:
+       604800000  # 7天，单位毫秒604800000

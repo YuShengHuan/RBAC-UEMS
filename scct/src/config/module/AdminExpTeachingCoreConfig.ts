@@ -1,0 +1,61 @@
+export const tableDataConfig = [
+    {
+        label: '编号',
+        prop: 'id'
+    },
+    {
+        label: '学期',
+        prop: 'semester'
+    },
+    {
+        label:'工号',
+        prop: 'userAccount'
+    },
+    {
+        label: '授课教师',
+        prop: 'realName'
+    },
+    {
+        label: '课程名称',
+        prop: 'courseName'
+    },
+    {
+        label: '班级名称',
+        prop: 'className'
+    },
+    {
+        label: '创建时间',
+        prop: 'createAt'
+    },
+    {
+        label: '更新时间',
+        prop: 'updateAt'
+    }
+];
+
+/**
+ * 实验课程安排查询表单配置
+ */
+export const filterFormConfig = [
+    {
+        label: '学期',
+        prop: 'semester',
+    },
+    {
+        label: '课程名称',
+        prop: 'courseName',
+    },
+    {
+        label: '班级名称',
+        prop: 'className',
+    },
+    {
+        label: '授课教师姓名',
+        prop: 'realName',
+    }
+];
+
+/**
+ * 实验课程安排API基础路径
+ */
+export const baseApi = "/api/admin/teaching-core";

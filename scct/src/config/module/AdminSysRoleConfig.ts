@@ -1,0 +1,51 @@
+export const tableDataConfig=[
+  {
+    label:'角色编号',
+    prop:'id'
+  },
+  {
+    label:'角色编码',
+    prop:'roleCode',
+  },
+  {
+    label:'角色分组',
+    prop:'roleGroup',
+  },
+  {
+    label:'角色名称',
+    prop:'roleName',
+  },
+  {
+    label:'创建时间',
+    prop:'createAt'
+  },
+  {
+    label:'更新时间',
+    prop:'updateAt'
+  }
+]
+export const filterFormConfig=[
+  {
+    label:'角色编码',
+    prop:'roleCode'
+  },
+  {
+    label:'角色名称',
+    prop:'roleName'
+  }
+]
+export const importFormConfig=[
+  {
+    label:'角色编码',
+    prop:'roleCode',
+  },
+  {
+    label:'角色分组',
+    prop:'roleGroup',
+  },
+  {
+    label:'角色名称',
+    prop:'roleName',
+  }
+]
+export const baseApi= "/api/admin/role"

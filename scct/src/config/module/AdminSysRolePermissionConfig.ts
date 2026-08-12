@@ -1,0 +1,49 @@
+export const tableDataConfig=[
+  {
+    label:'权限编号',
+    prop:'id'
+  },
+  {
+    label:'角色编码',
+    prop:'roleCode',
+  },
+  {
+    label:'角色名称',
+    prop:'roleName',
+  },
+  {
+    label:'权限编码',
+    prop:'permCode',
+  },
+  {
+    label:'权限名称',
+    prop:'permName',
+  },
+  {
+    label:'创建时间',
+    prop:'createAt'
+  },
+  {
+    label:'更新时间',
+    prop:'updateAt'
+  }
+]
+export const filterFormConfig=[
+  {
+    label:'角色编码',
+    prop:'roleCode'
+  },
+  {
+    label:'角色名称',
+    prop:'roleName'
+  },
+  {
+    label:'权限编码',
+    prop:'permCode'
+  },
+  {
+    label:'权限名称',
+    prop:'permName'
+  }
+]
+export const baseApi= "/api/admin/role-perm"

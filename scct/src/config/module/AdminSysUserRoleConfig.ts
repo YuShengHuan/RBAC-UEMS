@@ -1,0 +1,53 @@
+export const tableDataConfig=[
+  {
+    label:'编号',
+    prop:'id'
+  },
+  {
+    label:'用户名',
+    prop:'userAccount',
+  },
+  {
+    label:'真实名',
+    prop:'realName',
+  },
+  {
+    label:'角色编码',
+    prop:'roleCode',
+  },
+  {
+    label:'角色名称',
+    prop:'roleName',
+  },
+  {
+    label:'分院名称',
+    prop:'deptName',
+  },
+  {
+    label:'创建时间',
+    prop:'createAt'
+  },
+  {
+    label:'更新时间',
+    prop:'updateAt'
+  }
+]
+export const filterFormConfig=[
+  {
+    label:'账户',
+    prop:'userAccount'
+  },
+  {
+    label:'真实名',
+    prop:'realName'
+  },
+  {
+    label:'角色编码',
+    prop:'roleCode'
+  },
+  {
+    label:'角色名称',
+    prop:'roleName'
+  },
+]
+export const baseApi= "/api/admin/user-role"

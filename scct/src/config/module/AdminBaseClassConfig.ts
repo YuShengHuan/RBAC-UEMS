@@ -1,0 +1,64 @@
+
+export const tableDataConfig=[
+    {
+        label:'班级编号',
+        prop:'id'
+    },
+    {
+        label:'班级编码',
+        prop:'classCode',
+    },
+    {
+        label:'学院名称',
+        prop:'deptName',
+    },
+    {
+        label:'专业名称',
+        prop:'majorName',
+    },
+    {
+        label:'班级名称',
+        prop:'className',
+    },
+    {
+        label:'年级',
+        prop:'grade',
+    },
+    {
+        label:'人数',
+        prop:'studentCount',
+    },
+    {
+        label:'创建时间',
+        prop:'createAt'
+    },
+    {
+        label:'更新时间',
+        prop:'updateAt'
+    }
+]
+export const filterFormConfig=[
+    {
+        label:'班级编码',
+        prop:'classCode'
+    },
+    {
+        label:'班级名称',
+        prop:'className'
+    }
+]
+export const importFormConfig=[
+    {
+        label:'专业名称',
+        prop:'majorName'
+    },
+    {
+        label:'班级名称',
+        prop:'className'
+    },
+    {
+        label:'年级',
+        prop:'grade',
+    }
+]
+export const baseApi= "/api/admin/class"

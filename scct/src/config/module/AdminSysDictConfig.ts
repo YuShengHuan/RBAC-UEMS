@@ -1,0 +1,63 @@
+export const tableDataConfig=[
+  {
+    label:'字典编号',
+    prop:'id'
+  },
+  {
+    label:'字典类型',
+    prop:'dictGroup'
+  },
+  {
+    label:'字典键',
+    prop:'dictKey',
+  },
+  {
+    label:'字典值',
+    prop:'dictValue',
+  },
+  {
+    label:'字典备注',
+    prop:'remark',
+  },
+  {
+    label:'创建时间',
+    prop:'createAt'
+  },
+  {
+    label:'更新时间',
+    prop:'updateAt'
+  }
+]
+export const filterFormConfig=[
+  {
+    label:'字典类型',
+    prop:'dictGroup'
+  },
+  {
+    label:' 字典键',
+    prop:'dictKey'
+  },
+  {
+    label:'字典值',
+    prop:'dictValue'
+  }
+]
+export const importFormConfig=[
+  {
+    label:'字典分组',
+    prop:'dictGroup'
+  },
+  {
+    label:'字典键',
+    prop:'dictKey',
+  },
+  {
+    label:'字典值',
+    prop:'dictValue',
+  },
+  {
+    label:'字典备注',
+    prop:'remark'
+  },
+]
+export const baseApi= "/api/admin/dict"
