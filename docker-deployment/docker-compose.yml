@@ -1,0 +1,83 @@
+services:
+  libreoffice:
+    image: lscr.io/linuxserver/libreoffice:latest
+    container_name: my-libreoffice
+    environment:
+      - PUID=0 # 用户ID
+      - PGID=0 # 组ID
+      - TZ=Asia/Shanghai # 设置时区
+    volumes:
+      - ./libreoffice/docs:/docs # 挂载目录，用于存储文档
+    ports:
+      - "2002:2002"
+    restart: unless-stopped
+    # 必须加入my-network，否则SpringBoot容器访问不到
+    networks:
+      - my-network
+  mysql:
+    image: mysql:8.0
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: hellomysqlword
+      MYSQL_DATABASE: experiment
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d  # 核心：sql文件挂载到初始化目录
+    networks:
+      - my-network
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: my-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass helloredisword
+    volumes:
+      - ./redis/data:/data
+    networks:
+      - my-network
+  vue-app:
+    build: ./vue
+    container_name: vue-app
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+  springboot-app:
+    build: ./springboot
+    container_name: springboot-app
+    restart: always
+    ports:
+      - "8089:8089"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod  # 激活prod环境
+    volumes:
+      # 核心挂载：宿主机配置文件 → 容器内路径（SpringBoot会读取此路径）
+      - ./springboot/config/application-prod.yaml:/app/config/application-prod.yaml
+      - ./springboot/uploads:/app/uploads
+
+      # 关键：挂载docker.sock（让SpringBoot容器能操作Docker）
+      - /var/run/docker.sock:/var/run/docker.sock
+      # 挂载docker二进制文件（容器内可执行docker命令）
+      - /usr/bin/docker:/usr/bin/docker
+      # 共享LibreOffice的文件目录（方便SpringBoot读写转换文件）
+      - ./libreoffice/docs:/opt/libreoffice/docs
+    depends_on:
+      - mysql
+      - redis
+      - libreoffice
+      - vue-app
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
